@@ -1,0 +1,23 @@
+import React from 'react';
+
+import LanguageContext from '../contexts/LanguageContext';
+import ColorContext from '../contexts/ColorContext';
+
+class Button extends React.Component {
+	renderButton(color) {
+		return (
+			<LanguageContext.Consumer>
+				{(language) => {
+					const text = language === 'english' ? 'Submit' : 'Đăng nhập';
+					return <button className={`ui button ${color}`}>{text}</button>;
+				}}
+			</LanguageContext.Consumer>
+		);
+	}
+
+	render() {
+		return <ColorContext.Consumer>{(color) => this.renderButton(color)}</ColorContext.Consumer>;
+	}
+}
+
+export default Button;
