@@ -6,7 +6,7 @@ class Field extends React.Component {
 	render() {
 		return (
 			<LanguageContext.Consumer>
-				{(language) => {
+				{({ language }) => {
 					const text = language === 'english' ? 'Name' : 'Tên';
 					return (
 						<div className="ui field">
